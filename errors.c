@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 09:39:20 by msaouab           #+#    #+#             */
-/*   Updated: 2022/01/31 17:16:45 by msaouab          ###   ########.fr       */
+/*   Created: 2022/01/31 14:39:28 by msaouab           #+#    #+#             */
+/*   Updated: 2022/01/31 20:04:14 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+void	error_map(int err)
 {
-	if (ac < 2)
-		error_map(0);
-	if (ft_strncmp(ft_strrchr(av[1], '.'), ".ber", 4) != 0)
-		error_map(-1);
-	read_map(av[1]);
+	ft_putstr_fd("error\n", 2);
+	if (err == 0)
+		ft_putstr_fd("you have minumum argements\n", 2);
+	if (err == 1)
+		ft_putstr_fd("error length of line map\n", 2);
+	if (err == 2)
+		ft_putstr_fd("Invalid Wall\n", 2);
+	if (err == 3)
+		ft_putstr_fd("your map must be rectangular\n", 2);
+	if (err == 4)
+		ft_putstr_fd("error map\n", 2);
+		if (err == 5)
+		ft_putstr_fd("Invalid Characters\n", 2);
+	exit(0);
 }

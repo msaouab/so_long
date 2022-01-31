@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 23:49:16 by msaouab           #+#    #+#             */
-/*   Updated: 2022/01/21 00:48:26 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/01/31 17:07:21 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	lenword(char *s, char c)
 		if (s[i] == c && i == 1)
 			i = 0;
 		if (s[i] == c && s[i + 1] == c)
-			error_map();
+			error_map(-1);
 		s++;
 	}
 	return (count);

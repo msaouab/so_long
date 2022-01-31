@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 09:45:39 by msaouab           #+#    #+#              #
-#    Updated: 2022/01/20 23:51:05 by msaouab          ###   ########.fr        #
+#    Updated: 2022/01/31 14:39:57 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC =	main.c\
 		read_map.c\
 		utils_libft.c\
 		ft_split.c\
+		errors.c\
 
 OBJ = ${SRC:.c=.o}
 
