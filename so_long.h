@@ -6,34 +6,46 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/01/31 20:02:14 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/01 20:26:51 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <mlx.h>
-#include <fcntl.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <mlx.h>
+# include <fcntl.h>
 
 typedef struct gnl_variable
 {
+	int		count_buff;
+	int		count_line;
 	char	**map;
-	char	*buff;			//line in map (%s)
-	int		count_buff;		// total char in one line in map (%s)
-	int		count_line;		// total char in map (%d)
-	int		fd;				
-	int		i;				// number of line in map (%d)
-	char	*s;			//total char in map (%s)
+	char	*save;
+	char	*buff;
+	int		fd;
+	int		i;
 	int		c;
 	int		e;
 	int		p;
 }	t_gnl;
 
-void	read_map(char *av);
+typedef	struct mlx_variables
+{
+	void	*ptr;
+	void	*win;
+	int		x;
+	int		y;
+	int		font_w;
+	int		font_h;
+	void	*img;
+}	t_mlx;
+
+
+void	read_map(char *av, t_gnl *gnl);
 int		ft_strlen(char *s);
 char	*ft_strdup(char *s1);
 void	ft_putstr_fd(char *s, int fd);
