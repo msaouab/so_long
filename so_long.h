@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/01 20:26:51 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/03 23:58:58 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct gnl_variable
 	char	**map;
 	char	*save;
 	char	*buff;
+	int		count;
 	int		fd;
 	int		i;
 	int		c;
@@ -35,6 +36,11 @@ typedef struct gnl_variable
 
 typedef	struct mlx_variables
 {
+	void	*a_C;
+	void	*a_E;
+	void	*a_P;
+	void	*a_1;
+	void	*a_0;
 	void	*ptr;
 	void	*win;
 	int		x;
@@ -43,6 +49,11 @@ typedef	struct mlx_variables
 	int		font_h;
 	void	*img;
 }	t_mlx;
+
+// typedef	struct keys
+// {
+// }	t_key;
+
 
 
 void	read_map(char *av, t_gnl *gnl);
@@ -53,5 +64,5 @@ char	**ft_split(char *s, char c);
 void	error_map(int err);
 char	*ft_strrchr(char *str, int c);
 int		ft_strncmp(char *s1, char *s2, size_t n);
-
+void	movewith_key(t_mlx *mlx, t_gnl *gnl, int keycode);
 #endif

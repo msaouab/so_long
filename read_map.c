@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 02:28:40 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/02 18:59:42 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/03 22:48:26 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	invalid_char(t_gnl *gnl)
 						error_map(5);
 		}
 	}
-	if (gnl->p != 1 || gnl->c < 1 || gnl->e != 1)
+	if (gnl->p != 1 || gnl->c < 1 || gnl->e < 1)
 		error_map(4);
 }
 
@@ -125,5 +125,5 @@ void	read_map(char *av, t_gnl *gnl)
 	while (--i > 0)
 		if (ft_strlen(gnl->map[i]) != ft_strlen(gnl->map[i - 1]))
 			error_map(1);
-	check_map(gnl);
+	check_map(gnl);	
 }
