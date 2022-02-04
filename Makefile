@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 09:45:39 by msaouab           #+#    #+#              #
-#    Updated: 2022/01/31 14:39:57 by msaouab          ###   ########.fr        #
+#    Updated: 2022/02/04 17:43:21 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC =	main.c\
 		utils_libft.c\
 		ft_split.c\
 		errors.c\
+		move_with_keys.c\
 
 OBJ = ${SRC:.c=.o}
 

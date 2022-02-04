@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/03 23:58:58 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/04 17:50:07 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,6 @@ typedef struct gnl_variable
 	int		c;
 	int		e;
 	int		p;
-}	t_gnl;
-
-typedef	struct mlx_variables
-{
 	void	*a_C;
 	void	*a_E;
 	void	*a_P;
@@ -48,7 +44,23 @@ typedef	struct mlx_variables
 	int		font_w;
 	int		font_h;
 	void	*img;
-}	t_mlx;
+}	t_gnl;
+
+// typedef	struct mlx_variables
+// {
+// 	void	*a_C;
+// 	void	*a_E;
+// 	void	*a_P;
+// 	void	*a_1;
+// 	void	*a_0;
+// 	void	*ptr;
+// 	void	*win;
+// 	int		x;
+// 	int		y;
+// 	int		font_w;
+// 	int		font_h;
+// 	void	*img;
+// }	t_mlx;
 
 // typedef	struct keys
 // {
@@ -64,5 +76,10 @@ char	**ft_split(char *s, char c);
 void	error_map(int err);
 char	*ft_strrchr(char *str, int c);
 int		ft_strncmp(char *s1, char *s2, size_t n);
-void	movewith_key(t_mlx *mlx, t_gnl *gnl, int keycode);
+void	movewith_key(t_gnl *gnl, int keycode);
+void	move_to_left(t_gnl *gnl);
+void	move_to_bottum(t_gnl *gnl);
+void	move_to_right(t_gnl *gnl);
+void	move_to_top(t_gnl *gnl);
+void	print_wall(t_gnl *gnl);
 #endif

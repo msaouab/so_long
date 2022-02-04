@@ -6,27 +6,48 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:39:20 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/04 00:06:25 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/04 17:49:02 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	*xpm_to_img(t_mlx *mlx, char *path)
-{
-	void	*a;
+// void	*xpm_to_img(t_gnl *gnl, char *path)
+// {
+// 	void	*a;
 
-	a = mlx_xpm_file_to_image(mlx->ptr, path, &mlx->font_w, &mlx->font_h);
-	return (a);
+// 	a = mlx_xpm_file_to_image(gnl->ptr, path, &gnl->font_w, &gnl->font_h);
+// 	return (a);
+// }
+
+void	xpm_to_img(t_gnl *gnl)
+{
+	void	*ph_0;
+	void	*ph_1;
+	void	*ph_P;
+	void	*ph_C;
+	void	*ph_E;
+	
+	ph_0 = "./img/vide.xpm";
+	ph_1 = "./img/wall.xpm";
+	ph_P = "./img/player.xpm";
+	ph_C = "./img/star.xpm";
+	ph_E = "./img/door.xpm";
+	gnl->a_0 = mlx_xpm_file_to_image(gnl->ptr, ph_0, &gnl->font_w, &gnl->font_h);
+	gnl->a_1 = mlx_xpm_file_to_image(gnl->ptr, ph_1, &gnl->font_w, &gnl->font_h);
+	gnl->a_P = mlx_xpm_file_to_image(gnl->ptr, ph_P, &gnl->font_w, &gnl->font_h);
+	gnl->a_C = mlx_xpm_file_to_image(gnl->ptr, ph_C, &gnl->font_w, &gnl->font_h);
+	gnl->a_E = mlx_xpm_file_to_image(gnl->ptr, ph_E, &gnl->font_w, &gnl->font_h);
 }
 
-void	print_windows(t_mlx *mlx, char *path)
+
+void	print_windows(t_gnl *gnl, void *path)
 {
-	mlx->img = xpm_to_img(mlx, path);
-	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img, mlx->x, mlx->y);
+	// gnl->img = xpm_to_img(mlx, path);
+	mlx_put_image_to_window(gnl->ptr, gnl->win, path, gnl->x, gnl->y);
 }
 
-// void	random_collictble(t_mlx *mlx)
+// void	random_collictble(t_gnl *gnl)
 // {
 // 	int	tab[3];
 // 	int	i;
@@ -54,84 +75,51 @@ void	print_windows(t_mlx *mlx, char *path)
 // 	printf("%d\n", max_indx);
 // }
 
-void	print_wall(t_mlx *mlx, t_gnl *gnl)
+void	print_wall(t_gnl *gnl)
 {
 	int	i;
 	int	j;
 
-	mlx_clear_window(mlx->ptr, mlx->win);
-	mlx->x = 0;
-	mlx->y = 0;
+	
+	mlx_clear_window(gnl->ptr, gnl->win);
+	gnl->x = 0;
+	gnl->y = 0;
 	i = -1;
 	while (++i < gnl->i)
 	{
 		j = -1;
 		while (++j < (gnl->count_line / gnl->i))
 		{
-			print_windows(mlx, "./img/vide.xpm");
+			print_windows(gnl, gnl->a_0);
 			if (gnl->map[i][j] == '1')
-				print_windows(mlx, "./img/wall.xpm");
+				print_windows(gnl, gnl->a_1);
 			if (gnl->map[i][j] == 'C')
-			{
-				print_windows(mlx, "./img/star.xpm");
-				// random_collictble(mlx);
-			}
+				print_windows(gnl, gnl->a_C);
 			if (gnl->map[i][j] == 'E')
-				print_windows(mlx, "./img/door.xpm");
+				print_windows(gnl, gnl->a_E);
 			if (gnl->map[i][j] == 'P')
-				print_windows(mlx, "./img/player.xpm");
-			mlx->x += 75;			
+				print_windows(gnl, gnl->a_P);
+			gnl->x += 75;
 		}
-		mlx->x = 0;
-		mlx->y += 75;
+		gnl->x = 0;
+		gnl->y += 75;
 	}
-	mlx->y = 0;
+	gnl->y = 0;
 }
 
-void	move_to_right(t_mlx *mlx, t_gnl *gnl)
+void	movewith_key(t_gnl *gnl, int keycode)
 {
-	int	i;
-	int	j;
-	int	k[2];
-
-	(void)mlx;
-	i = 0;
-	while (++i < gnl->i)
-	{
-		j = 0;
-		while (++j < (gnl->count_line / gnl->i) - 1)
-		{
-			if (gnl->map[i][j] == 'P')
-			{
-				k[0] = i;
-				k[1] = j;
-			}
-		}
-	}
-	if (gnl->map[k[0]][k[1] + 1] == '1')
-		return ;
-	if (gnl->map[k[0]][k[1] + 1] == 'C' || gnl->map[k[0]][k[1] + 1] == '0')
-	{
-		gnl->map[k[0]][k[1]] = '0';
-		gnl->map[k[0]][k[1] + 1] = 'P';
-		// reprint_win(mlx, gnl);
-	}
-		
-}
-
-void	movewith_key(t_mlx *mlx, t_gnl *gnl, int keycode)
-{
-	// if (keycode == 0)
-	// 	move_to_left(gnl);
-	// if (keycode == 1)
-	// 	move_to_bottum(gnl);
+	if (keycode == 0)
+		move_to_left(gnl);
+	if (keycode == 1)
+		move_to_bottum(gnl);
 	if (keycode == 2)
-		move_to_right(mlx, gnl);
-	// if (keycode == 13)
-	// 	move_to_top(gnl);
+		move_to_right(gnl);
+	if (keycode == 13)
+		move_to_top(gnl);
 }
 
-int	key_hook(int keycode, t_gnl *gnl, t_mlx *mlx)
+int	key_hook(int keycode, t_gnl *gnl)
 {
 	if (keycode == 0)
 		gnl->count++;
@@ -149,14 +137,13 @@ int	key_hook(int keycode, t_gnl *gnl, t_mlx *mlx)
 	}
 	if (keycode == 0 || keycode == 1 || keycode == 2 || keycode == 13 || keycode == 53)
 		printf("keycode : %d\n", gnl->count);
-	movewith_key(mlx, gnl, keycode);
-		// print_wall(mlx, gnl);
+	movewith_key(gnl, keycode);
+		//print_wall(mlx, gnl);
 	return (0);
 }
 
 int	main(int ac, char **av)
 {
-	t_mlx	mlx;
 	t_gnl	gnl;
 	int		x;
 	int		y;
@@ -169,10 +156,11 @@ int	main(int ac, char **av)
 	read_map(av[1], &gnl);
 	x = (gnl.count_line / gnl.i) * 75;
 	y = gnl.i * 75;
-	mlx.ptr = mlx_init();
-	mlx.win = mlx_new_window(mlx.ptr, x, y, "so_long");
-	print_wall(&mlx, &gnl);
-	mlx_key_hook(mlx.win, &key_hook, &gnl);
+	gnl.ptr = mlx_init();
+	gnl.win = mlx_new_window(gnl.ptr, x, y, "so_long");
+	xpm_to_img(&gnl);
+	print_wall(&gnl);
+	mlx_key_hook(gnl.win, &key_hook, &gnl);
 	// print_wall(&mlx, &gnl);
-	mlx_loop(mlx.ptr);
+	mlx_loop(gnl.ptr);
 }
