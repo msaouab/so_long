@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   read_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 02:28:40 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/05 15:34:12 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/05 20:01:48 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	invalid_char(t_map *map)
 {
@@ -29,13 +29,15 @@ void	invalid_char(t_map *map)
 				map->e++;
 			if (map->map[i][j] == 'P')
 				map->p++;
+			if (map->map[i][j] == 'N')
+				map->n++;
 			if (map->map[i][j] != '1' && map->map[i][j] != '0')
 				if (map->map[i][j] != 'C' && map->map[i][j] != 'E')
-					if (map->map[i][j] != 'P')
+					if (map->map[i][j] != 'P' && map->map[i][j] != 'N')
 						error_map(5);
 		}
 	}
-	if (map->p != 1 || map->c < 1 || map->e < 1)
+	if (map->p != 1 || map->c < 1 || map->e < 1 || map->n < 1)
 		error_map(4);
 }
 
@@ -59,6 +61,7 @@ void	check_elements_map(t_map *map)
 	map->c = 0;
 	map->e = 0;
 	map->p = 0;
+	map->n = 0;
 	invalid_char(map);
 }
 

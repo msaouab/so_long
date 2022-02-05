@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 09:45:39 by msaouab           #+#    #+#              #
-#    Updated: 2022/02/04 20:10:16 by msaouab          ###   ########.fr        #
+#    Updated: 2022/02/05 19:57:27 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@ NAME = so_long
 
 HEADER = so_long.h
 
-SRC =	main.c\
-		read_map.c\
+SRC =	main_bonus.c\
+		read_map_bonus.c\
 		utils_libft.c\
 		ft_split.c\
 		errors.c\
 		move_with_keys.c\
-		print_map.c\
+		print_map_bonus.c\
 
 OBJ = ${SRC:.c=.o}
 

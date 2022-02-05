@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/05 18:19:41 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/05 19:54:28 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -20,7 +20,7 @@
 # include <mlx.h>
 # include <fcntl.h>
 
-typedef struct map_variable
+typedef struct s_map
 {
 	int		count_buff;
 	int		count_line;
@@ -33,11 +33,14 @@ typedef struct map_variable
 	int		c;
 	int		e;
 	int		p;
-	void	*a_Coin;
-	void	*a_Star;
-	void	*a_Hart;
-	void	*a_E;
-	void	*a_P;
+	int		n;
+	void	*a_coin;
+	void	*a_star;
+	void	*a_hart;
+	void	*a_lion;
+	void	*a_bull;
+	void	*a_e;
+	void	*a_p;
 	void	*a_1;
 	void	*a_0;
 	void	*ptr;

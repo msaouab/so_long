@@ -1,6 +1,8 @@
 {
 	"files.associations": {
 		"mlx.h": "c",
-		"utils_libft": "c"
+		"utils_libft": "c",
+		"so_long.h": "c",
+		"so_long_bonus.h": "c"
 	}
 }
