@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 09:45:39 by msaouab           #+#    #+#              #
-#    Updated: 2022/02/06 02:24:10 by msaouab          ###   ########.fr        #
+#    Updated: 2022/02/06 04:51:30 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRC_BONUS = bonus/main_bonus.c\
 			bonus/ft_split_bonus.c\
 			bonus/read_map_bonus.c\
 			bonus/errors_bonus.c\
-			bonus/ft_itoa.c\
+			bonus/ft_itoa_bonus.c\
 
 OBJ = ${SRC:.c=.o}
 
