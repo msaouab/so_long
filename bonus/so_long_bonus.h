@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/05 19:54:28 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/06 02:21:51 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ void	print_wall(t_map *gnl);
 void	position_p(t_map *gnl);
 void	random_colloctible(t_map *map);
 void	xpm_to_img_collectible(t_map *map);
+char	*ft_itoa(int n);
 
 #endif

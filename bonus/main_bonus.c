@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:39:20 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/05 19:56:51 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/06 01:40:30 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,6 @@ void	xpm_to_img(t_map *map)
 	xpm_to_img_collectible(map);
 }
 
-void	movewith_key(t_map *map, int keycode)
-{
-	if (keycode == 0)
-		move_to_left(map);
-	if (keycode == 1)
-		move_to_bottum(map);
-	if (keycode == 2)
-		move_to_right(map);
-	if (keycode == 13)
-		move_to_top(map);
-}
-
 void	position_p(t_map *map)
 {
 	int	i;
@@ -69,19 +57,15 @@ void	position_p(t_map *map)
 int	key_hook(int keycode, t_map *map)
 {
 	if (keycode == 0)
-		map->count++;
+		move_to_left(map);
 	if (keycode == 1)
-		map->count++;
+		move_to_bottum(map);
 	if (keycode == 2)
-		map->count++;
+		move_to_right(map);
 	if (keycode == 13)
-		map->count++;
+		move_to_top(map);
 	if (keycode == 53)
 		exit(0);
-	if (keycode == 0 || keycode == 1 || keycode == 2
-		|| keycode == 13 || keycode == 53)
-		printf("keycode : %d\n", map->count);
-	movewith_key(map, keycode);
 	return (0);
 }
 

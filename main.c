@@ -6,11 +6,31 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:39:20 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/05 18:36:14 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/06 02:03:51 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	position_p(t_map *map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (++i < map->i)
+	{
+		j = 0;
+		while (++j < (map->count_line / map->i) - 1)
+		{
+			if (map->map[i][j] == 'P')
+			{
+				map->p_x = i;
+				map->p_y = j;
+			}
+		}
+	}
+}
 
 void	xpm_to_img(t_map *map)
 {
@@ -34,7 +54,7 @@ void	xpm_to_img(t_map *map)
 	xpm_to_img_collectible(map);
 }
 
-void	movewith_key(t_map *map, int keycode)
+int	key_hook(int keycode, t_map *map)
 {
 	if (keycode == 0)
 		move_to_left(map);
@@ -44,24 +64,8 @@ void	movewith_key(t_map *map, int keycode)
 		move_to_right(map);
 	if (keycode == 13)
 		move_to_top(map);
-}
-
-int	key_hook(int keycode, t_map *map)
-{
-	if (keycode == 0)
-		map->count++;
-	if (keycode == 1)
-		map->count++;
-	if (keycode == 2)
-		map->count++;
-	if (keycode == 13)
-		map->count++;
 	if (keycode == 53)
 		exit(0);
-	if (keycode == 0 || keycode == 1 || keycode == 2
-		|| keycode == 13 || keycode == 53)
-		printf("keycode : %d\n", map->count);
-	movewith_key(map, keycode);
 	return (0);
 }
 

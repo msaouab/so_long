@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 20:09:12 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/05 18:50:10 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/06 02:03:46 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,26 +59,6 @@ void	random_colloctible(t_map *map)
 		}
 		map->x = 0;
 		map->y += 75;
-	}
-}
-
-void	position_p(t_map *map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (++i < map->i)
-	{
-		j = 0;
-		while (++j < (map->count_line / map->i) - 1)
-		{
-			if (map->map[i][j] == 'P')
-			{
-				map->p_x = i;
-				map->p_y = j;
-			}
-		}
 	}
 }
 

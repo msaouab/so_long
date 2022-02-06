@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_with_keys.c                                   :+:      :+:    :+:   */
+/*   move_with_keys_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 17:43:33 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/05 19:51:21 by msaouab          ###   ########.fr       */
+/*   Created: 2022/02/04 17:43:00 by msaouab           #+#    #+#             */
+/*   Updated: 2022/02/06 02:33:58 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	move_to_left(t_map *map)
 	{
 		map->map[map->p_x][map->p_y] = '0';
 		map->map[map->p_x][map->p_y - 1] = 'P';
+		map->count++;
 	}
 	if (map->map[map->p_x][map->p_y - 1] == 'N')
 	{
@@ -59,6 +60,7 @@ void	move_to_left(t_map *map)
 		check_exit(map);
 	mlx_clear_window(map->ptr, map->win);
 	print_wall(map);
+	mlx_string_put(map->ptr, map->win, 15, 7, 0x00000000, ft_itoa(map->count));
 }
 
 void	move_to_bottum(t_map *map)
@@ -71,6 +73,7 @@ void	move_to_bottum(t_map *map)
 	{
 		map->map[map->p_x][map->p_y] = '0';
 		map->map[map->p_x + 1][map->p_y] = 'P';
+		map->count++;
 	}
 	if (map->map[map->p_x + 1][map->p_y] == 'N')
 	{
@@ -81,6 +84,7 @@ void	move_to_bottum(t_map *map)
 		check_exit(map);
 	mlx_clear_window(map->ptr, map->win);
 	print_wall(map);
+	mlx_string_put(map->ptr, map->win, 15, 7, 0x00000000, ft_itoa(map->count));
 }
 
 void	move_to_right(t_map *map)
@@ -93,6 +97,7 @@ void	move_to_right(t_map *map)
 	{
 		map->map[map->p_x][map->p_y] = '0';
 		map->map[map->p_x][map->p_y + 1] = 'P';
+		map->count++;
 	}
 	if (map->map[map->p_x][map->p_y + 1] == 'N')
 	{
@@ -103,6 +108,7 @@ void	move_to_right(t_map *map)
 		check_exit(map);
 	mlx_clear_window(map->ptr, map->win);
 	print_wall(map);
+	mlx_string_put(map->ptr, map->win, 15, 7, 0x00000000, ft_itoa(map->count));
 }
 
 void	move_to_top(t_map *map)
@@ -115,6 +121,7 @@ void	move_to_top(t_map *map)
 	{
 		map->map[map->p_x][map->p_y] = '0';
 		map->map[map->p_x - 1][map->p_y] = 'P';
+		map->count++;
 	}
 	if (map->map[map->p_x - 1][map->p_y] == 'N')
 	{
@@ -125,4 +132,5 @@ void	move_to_top(t_map *map)
 		check_exit(map);
 	mlx_clear_window(map->ptr, map->win);
 	print_wall(map);
+	mlx_string_put(map->ptr, map->win, 15, 7, 0x00000000, ft_itoa(map->count));
 }

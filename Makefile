@@ -6,23 +6,36 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 09:45:39 by msaouab           #+#    #+#              #
-#    Updated: 2022/02/04 20:10:16 by msaouab          ###   ########.fr        #
+#    Updated: 2022/02/06 02:24:10 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
+NAME_BONUS = so_long_bonus
+
 HEADER = so_long.h
 
 SRC =	main.c\
-		read_map.c\
+		move_with_keys.c\
 		utils_libft.c\
+		print_map.c\
+		read_map.c\
 		ft_split.c\
 		errors.c\
-		move_with_keys.c\
-		print_map.c\
+		
+SRC_BONUS = bonus/main_bonus.c\
+			bonus/print_map_bonus.c\
+			bonus/move_with_keys_bonus.c\
+			bonus/utils_libft_bonus.c\
+			bonus/ft_split_bonus.c\
+			bonus/read_map_bonus.c\
+			bonus/errors_bonus.c\
+			bonus/ft_itoa.c\
 
 OBJ = ${SRC:.c=.o}
+
+OBJ_BONUS = ${SRC_BONUS:%.c=%.o}
 
 CC = gcc
 
@@ -30,17 +43,25 @@ CFLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
+# bonus : $(NAME_BONUS)
+
 $(NAME): $(OBJ)
-	#cc -I /usr/local/include main.c -L /usr/local/lib/ -lmlx -framework OpenGL -framework Appkit
 	$(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
-%.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -Imlx -c $<
+#cc -I /usr/local/include main.c -L /usr/local/lib/ -lmlx -framework OpenGL -framework Appkit
+
+bonus: $(OBJ_BONUS)
+	$(CC) $(CFLAGS) $(OBJ_BONUS) -lmlx -framework OpenGL -framework AppKit -o $(NAME_BONUS)
+	
+#cc -I /usr/local/include main.c -L /usr/local/lib/ -lmlx -framework OpenGL -framework Appkit
+
+# %.o: %.c $(HEADER)
+# 	$(CC) $(CFLAGS) -Imlx -c $<
 
 clean :
-		rm -rf $(OBJ)
+		rm -rf $(OBJ) $(OBJ_BONUS)
 
 fclean : clean
-		rm -rf $(NAME)
+		rm -rf $(NAME) $(NAME_BONUS)
 
 re : fclean all
