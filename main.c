@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:39:20 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/06 02:03:51 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/07 02:11:51 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	xpm_to_img(t_map *map)
 
 int	key_hook(int keycode, t_map *map)
 {
+	map->out = 0;
 	if (keycode == 0)
 		move_to_left(map);
 	if (keycode == 1)
@@ -66,6 +67,8 @@ int	key_hook(int keycode, t_map *map)
 		move_to_top(map);
 	if (keycode == 53)
 		exit(0);
+	if (map->out)
+		check_exit(map);
 	return (0);
 }
 
@@ -89,4 +92,5 @@ int	main(int ac, char **av)
 	print_wall(&map);
 	mlx_key_hook(map.win, &key_hook, &map);
 	mlx_loop(map.ptr);
+	return (0);
 }

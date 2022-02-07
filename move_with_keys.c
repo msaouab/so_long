@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:43:33 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/06 01:50:10 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/07 02:15:05 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	check_exit(t_map *map)
 	else
 	{
 		map->map[map->p_x][map->p_y] = '0';
+		destroy_game(map);
 		printf("You Win\n");
-		exit(0);
 	}
 }
 
@@ -44,16 +44,15 @@ void	move_to_left(t_map *map)
 	position_p(map);
 	if (map->map[map->p_x][map->p_y - 1] == '1')
 		return ;
-	if (map->map[map->p_x][map->p_y - 1] == 'C'
-		|| map->map[map->p_x][map->p_y - 1] == '0')
+	else if (map->map[map->p_x][map->p_y - 1] == 'E')
 	{
-		map->map[map->p_x][map->p_y] = '0';
-		map->map[map->p_x][map->p_y - 1] = 'P';
-		map->count++;
-		printf("keycode 2: %d\n", map->count);
+		map->out = 1;
+		return ;
 	}
-	if (map->map[map->p_x][map->p_y - 1] == 'E')
-		check_exit(map);
+	map->map[map->p_x][map->p_y] = '0';
+	map->map[map->p_x][map->p_y - 1] = 'P';
+	map->count++;
+	printf("Move: %d\n", map->count);
 	mlx_clear_window(map->ptr, map->win);
 	print_wall(map);
 }
@@ -63,16 +62,15 @@ void	move_to_bottum(t_map *map)
 	position_p(map);
 	if (map->map[map->p_x + 1][map->p_y] == '1')
 		return ;
-	if (map->map[map->p_x + 1][map->p_y] == 'C'
-		|| map->map[map->p_x + 1][map->p_y] == '0')
+	else if (map->map[map->p_x + 1][map->p_y] == 'E')
 	{
-		map->map[map->p_x][map->p_y] = '0';
-		map->map[map->p_x + 1][map->p_y] = 'P';
-		map->count++;
-		printf("keycode 2: %d\n", map->count);
+		map->out = 1;
+		return ;
 	}
-	if (map->map[map->p_x + 1][map->p_y] == 'E')
-		check_exit(map);
+	map->map[map->p_x][map->p_y] = '0';
+	map->map[map->p_x + 1][map->p_y] = 'P';
+	map->count++;
+	printf("Move: %d\n", map->count);
 	mlx_clear_window(map->ptr, map->win);
 	print_wall(map);
 }
@@ -82,16 +80,15 @@ void	move_to_right(t_map *map)
 	position_p(map);
 	if (map->map[map->p_x][map->p_y + 1] == '1')
 		return ;
-	if (map->map[map->p_x][map->p_y + 1] == 'C'
-		|| map->map[map->p_x][map->p_y + 1] == '0')
+	else if (map->map[map->p_x][map->p_y + 1] == 'E')
 	{
-		map->map[map->p_x][map->p_y] = '0';
-		map->map[map->p_x][map->p_y + 1] = 'P';
-		map->count++;
-		printf("keycode 2: %d\n", map->count);
+		map->out = 1;
+		return ;
 	}
-	if (map->map[map->p_x][map->p_y + 1] == 'E')
-		check_exit(map);
+	map->map[map->p_x][map->p_y] = '0';
+	map->map[map->p_x][map->p_y + 1] = 'P';
+	map->count++;
+	printf("Move: %d\n", map->count);
 	mlx_clear_window(map->ptr, map->win);
 	print_wall(map);
 }
@@ -101,16 +98,15 @@ void	move_to_top(t_map *map)
 	position_p(map);
 	if (map->map[map->p_x - 1][map->p_y] == '1')
 		return ;
-	if (map->map[map->p_x - 1][map->p_y] == 'C'
-		|| map->map[map->p_x - 1][map->p_y] == '0')
+	else if (map->map[map->p_x - 1][map->p_y] == 'E')
 	{
-		map->map[map->p_x][map->p_y] = '0';
-		map->map[map->p_x - 1][map->p_y] = 'P';
-		map->count++;
-		printf("keycode 2: %d\n", map->count);
+		map->out = 1;
+		return ;
 	}
-	if (map->map[map->p_x - 1][map->p_y] == 'E')
-		check_exit(map);
+	map->map[map->p_x][map->p_y] = '0';
+	map->map[map->p_x - 1][map->p_y] = 'P';
+	map->count++;
+	printf("Move: %d\n", map->count);
 	mlx_clear_window(map->ptr, map->win);
 	print_wall(map);
 }

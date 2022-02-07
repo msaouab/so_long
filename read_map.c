@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 02:28:40 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/05 15:34:12 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/06 22:15:48 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,16 @@ void	check_map(t_map *map)
 
 char	*get_next_line(int fd, t_map *map)
 {
-	char	save[999999];
+	char	*save;
 	char	buff[1];
 	int		i;
 
 	i = 0;
 	if (fd < 0)
 		return (NULL);
-	save[i] = '\0';
 	while (read(fd, buff, 1) == 1)
 	{
-		save[i] = buff[0];
+		save = ft_strjoin(save, buff);
 		save[i + 1] = '\0';
 		if (save[i + 1] == '\n')
 			break ;
@@ -109,9 +108,10 @@ char	*get_next_line(int fd, t_map *map)
 void	read_map(char *av, t_map *map)
 {
 	int		i;
+	int		fd;
 
-	map->fd = open(av, O_RDONLY);
-	map->save = get_next_line(map->fd, map);
+	fd = open(av, O_RDONLY);
+	map->save = get_next_line(fd, map);
 	map->map = ft_split(map->save, '\n');
 	if (map->map == NULL)
 		error_map(-1);

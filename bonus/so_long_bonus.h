@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/06 02:21:51 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/07 16:45:49 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_map
 	char	*buff;
 	int		count;
 	int		fd;
+	int		out;
 	int		i;
 	int		c;
 	int		e;
@@ -72,5 +73,7 @@ void	position_p(t_map *gnl);
 void	random_colloctible(t_map *map);
 void	xpm_to_img_collectible(t_map *map);
 char	*ft_itoa(int n);
-
+char	*ft_strjoin(char *s1, char *s2);
+void	check_exit(t_map *map);
+void	destroy_game(t_map *map, int res);
 #endif

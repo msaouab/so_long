@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 09:45:39 by msaouab           #+#    #+#              #
-#    Updated: 2022/02/06 04:51:30 by msaouab          ###   ########.fr        #
+#    Updated: 2022/02/07 02:28:54 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,4 +64,4 @@ clean :
 fclean : clean
 		rm -rf $(NAME) $(NAME_BONUS)
 
-re : fclean all
+re : fclean all bonus

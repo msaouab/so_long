@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:39:20 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/06 01:40:30 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/07 16:46:18 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	position_p(t_map *map)
 
 int	key_hook(int keycode, t_map *map)
 {
+	map->out = 0;
 	if (keycode == 0)
 		move_to_left(map);
 	if (keycode == 1)
@@ -66,6 +67,10 @@ int	key_hook(int keycode, t_map *map)
 		move_to_top(map);
 	if (keycode == 53)
 		exit(0);
+	if (map->out == 1)
+		check_exit(map);
+	if (map->out == 2)
+		destroy_game(map, 0);
 	return (0);
 }
 

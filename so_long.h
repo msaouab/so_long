@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/05 18:19:41 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/07 02:11:56 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct map_variable
 	char	*buff;
 	int		count;
 	int		fd;
+	int		out;
 	int		i;
 	int		c;
 	int		e;
@@ -68,5 +69,8 @@ void	print_wall(t_map *gnl);
 void	position_p(t_map *gnl);
 void	random_colloctible(t_map *map);
 void	xpm_to_img_collectible(t_map *map);
-
+void	print_result(void);
+char	*ft_strjoin(char *s1, char *s2);
+void	check_exit(t_map *map);
+void	destroy_game(t_map *map);
 #endif

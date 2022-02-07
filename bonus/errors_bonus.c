@@ -1,16 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   errors_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:39:28 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/05 19:14:41 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/07 16:46:42 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+int	any_key(int keycode, t_map *map)
+{
+	(void)keycode;
+	mlx_clear_window(map->ptr, map->win);
+	mlx_destroy_window(map->ptr, map->win);
+	exit(0);
+	return (0);
+}
+
+void	destroy_game(t_map *map, int res)
+{
+	int	x;
+	int	y;
+
+	x = ((map->count_line / map->i) * 75) / 2;
+	y = (map->i * 75) / 2;
+	mlx_clear_window(map->ptr, map->win);
+	if (res == 1)
+		mlx_string_put(map->ptr, map->win, x, y, 0x00FFFFFF, "you win");
+	if (res == 0)
+		mlx_string_put(map->ptr, map->win, x, y, 0x00FFFFFF, "you lose");
+	mlx_key_hook(map->win, any_key, map);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	int		i;
+	int		j;
+	char	*str;
+
+	if (!s1)
+		return (ft_strdup(s2));
+	i = ft_strlen(s1) + ft_strlen(s2);
+	str = malloc(sizeof(char) * (i + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[i])
+		str[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		str[j++] = s2[i++];
+	str[j] = '\0';
+	return (str);
+}
 
 void	error_map(int err)
 {
