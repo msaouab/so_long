@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 20:09:12 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/05 19:59:50 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/08 23:55:36 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	xpm_to_img_collectible(t_map *map)
 	ph_star = "./img/star.xpm";
 	ph_hart = "./img/hart.xpm";
 	ph_bull = "./img/bull.xpm";
-	ph_lion = "./img/lion.xpm";
+	ph_lion = "./img/jocker_enemy.xpm";
 	map->a_coin = mlx_xpm_file_to_image
 		(map->ptr, ph_coin, &map->font_w, &map->font_h);
 	map->a_star = mlx_xpm_file_to_image
@@ -50,10 +50,10 @@ void	print_enemy(t_map *map)
 	map->x = 0;
 	map->y = 0;
 	i = -1;
-	while (++i < map->i)
+	while (++i < map->lnbr)
 	{
 		j = -1;
-		while (++j < map->count_line / map->i)
+		while (++j < ft_strlen(map->map[i]))
 		{
 			if (map->map[i][j] == 'N' && (j % 2 == 0))
 				print_windows(map, map->a_lion);
@@ -66,7 +66,7 @@ void	print_enemy(t_map *map)
 	}
 }
 
-void	random_colloctible(t_map *map)
+void	random_colloctible_bonus(t_map *map)
 {
 	int	num;
 	int	i;
@@ -75,10 +75,10 @@ void	random_colloctible(t_map *map)
 	map->x = 0;
 	map->y = 0;
 	i = -1;
-	while (++i < map->i)
+	while (++i < map->lnbr)
 	{
 		j = -1;
-		while (++j < map->count_line / map->i)
+		while (++j < ft_strlen(map->map[i]))
 		{
 			num = j % 5;
 			if (map->map[i][j] == 'C' && num < 2)
@@ -95,7 +95,7 @@ void	random_colloctible(t_map *map)
 	print_enemy(map);
 }
 
-void	print_wall(t_map *map)
+void	print_wall_bonus(t_map *map)
 {
 	int	i;
 	int	j;
@@ -103,10 +103,10 @@ void	print_wall(t_map *map)
 	map->x = 0;
 	map->y = 0;
 	i = -1;
-	while (++i < map->i)
+	while (++i < map->lnbr)
 	{
 		j = -1;
-		while (++j < (map->count_line / map->i))
+		while (++j < (ft_strlen(map->map[i])))
 		{
 			print_windows(map, map->a_0);
 			if (map->map[i][j] == '1')
@@ -120,5 +120,5 @@ void	print_wall(t_map *map)
 		map->x = 0;
 		map->y += 75;
 	}
-	random_colloctible(map);
+	random_colloctible_bonus(map);
 }

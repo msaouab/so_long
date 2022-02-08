@@ -6,40 +6,40 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 04:31:11 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/01 12:36:38 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/08 01:12:54 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_strlen(char *s)
-{
-	size_t	i;
+// int	ft_strlen(char *s)
+// {
+// 	size_t	i;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+// 	i = 0;
+// 	while (s[i])
+// 		i++;
+// 	return (i);
+// }
 
-char	*ft_strdup(char *s1)
-{
-	int		i;
-	char	*dst;
+// char	*ft_strdup(char *s1)
+// {
+// 	int		i;
+// 	char	*dst;
 
-	i = ft_strlen(s1);
-	dst = malloc(sizeof(char) * (i + 1));
-	if (!dst)
-		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		dst[i] = (char)s1[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
-}
+// 	i = ft_strlen(s1);
+// 	dst = malloc(sizeof(char) * (i + 1));
+// 	if (!dst)
+// 		return (NULL);
+// 	i = 0;
+// 	while (s1[i])
+// 	{
+// 		dst[i] = (char)s1[i];
+// 		i++;
+// 	}
+// 	dst[i] = '\0';
+// 	return (dst);
+// }
 
 void	ft_putstr_fd(char *s, int fd)
 {

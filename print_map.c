@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 20:09:12 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/06 02:03:46 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/08 22:36:09 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void	random_colloctible(t_map *map)
 	map->x = 0;
 	map->y = 0;
 	i = -1;
-	while (++i < map->i)
+	while (++i < map->lnbr)
 	{
 		j = -1;
-		while (++j < map->count_line / map->i)
+		while (++j < ft_strlen(map->map[i]))
 		{
 			num = j % 5;
 			if (map->map[i][j] == 'C' && num < 2)
@@ -70,10 +70,10 @@ void	print_wall(t_map *map)
 	map->x = 0;
 	map->y = 0;
 	i = -1;
-	while (++i < map->i)
+	while (++i < map->lnbr)
 	{
 		j = -1;
-		while (++j < (map->count_line / map->i))
+		while (++j < (ft_strlen(map->map[i])))
 		{
 			print_windows(map, map->a_0);
 			if (map->map[i][j] == '1')

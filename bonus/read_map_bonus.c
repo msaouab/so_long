@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 02:28:40 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/06 18:52:14 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/08 23:57:00 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	invalid_char(t_map *map)
 	int	j;
 
 	i = 0;
-	while (++i < map->i - 1)
+	while (++i < map->lnbr)
 	{
 		j = 0;
-		while (++j < (map->count_line / map->i) - 1)
+		while (++j < ft_strlen(map->map[i]))
 		{
 			if (map->map[i][j] == 'C')
 				map->c++;
@@ -46,13 +46,15 @@ void	check_elements_map(t_map *map)
 	int	count;
 	int	i;
 	int	j;
+	int	k;
 
 	i = 0;
-	while (++i < map->i - 1)
+	k = ft_strlen(map->map[i]);
+	while (++i < map->lnbr - 1)
 	{
 		j = -1;
 		count = 0;
-		while (++j < ft_strlen(map->map[i]))
+		while (++j < k)
 			if (map->map[i][j] == '1')
 				count++;
 		if (count == j)
@@ -65,67 +67,68 @@ void	check_elements_map(t_map *map)
 	invalid_char(map);
 }
 
-void	check_map(t_map *map)
+void	check_walls(t_map *map)
 {
 	int	i;
 	int	j;
+	int	k;
 
+	i = map->lnbr - 1;
+	while (--i >= 0)
+		assign(&map->map[i], ft_substr
+			(map->map[i], 0, ft_strlen(map->map[i]) - 1), map->map[i]);
+	while (++i < map->lnbr - 1)
+		if (ft_strlen(map->map[i]) != ft_strlen(map->map[i + 1]))
+			error_map(1);
 	i = -1;
-	j = map->count_buff - 1;
-	while (++i < ft_strlen(map->map[0]))
+	j = map->lnbr - 1;
+	k = ft_strlen(map->map[0]);
+	while (++i < k)
 		if (map->map[0][i] != '1' || map->map[j][i] != '1')
 			error_map(2);
-	i = 0;
+	i = -1;
 	j = ft_strlen(map->map[0]) - 1;
-	while (++i < map->count_buff)
+	while (++i < map->lnbr)
 		if (map->map[i][0] != '1' || map->map[i][j] != '1')
 			error_map(2);
 	check_elements_map(map);
 }
 
-char	*get_next_line(int fd, t_map *map)
+void	count_mapln(t_map *map, int fd)
 {
-	char	*save;
-	char	buff[1];
+	char	*buff;
+
+	map->lnbr = 0;
+	while (1)
+	{
+		buff = get_next_line(fd);
+		if (buff == NULL)
+			break ;
+		map->lnbr++;
+	}
+	close(fd);
+	free (buff);
+}
+
+void	read_map_bonus(char *av, t_map *map)
+{
 	int		i;
+	int		fd;
 
 	i = 0;
-	if (fd < 0)
-		return (NULL);
-	while (read(fd, buff, 1) == 1)
+	fd = open(av, O_RDONLY);
+	count_mapln(map, fd);
+	fd = open(av, O_RDONLY);
+	map->map = malloc(sizeof(char *) * map->lnbr + 1);
+	while (1)
 	{
-		save = ft_strjoin(save, buff);
-		save[i + 1] = '\0';
-		if (save[i + 1] == '\n')
+		map->map[i] = get_next_line(fd);
+		if (map->map[i] == NULL)
 			break ;
 		i++;
 	}
-	if (save[0] == '\0')
-		return (NULL);
-	map->buff = ft_strdup(save);
-	if (map->buff)
-		map->count_line = ft_strlen(map->buff);
-	return (map->buff);
-}
-
-void	read_map(char *av, t_map *map)
-{
-	int		i;
-
-	map->fd = open(av, O_RDONLY);
-	map->save = get_next_line(map->fd, map);
-	map->map = ft_split(map->save, '\n');
+	close(fd);
 	if (map->map == NULL)
 		error_map(-1);
-	i = 0;
-	while (map->map[i])
-		i++;
-	map->i = i;
-	if ((map->count_line / map->i) == i)
-		error_map(3);
-	map->count_buff = i;
-	while (--i > 0)
-		if (ft_strlen(map->map[i]) != ft_strlen(map->map[i - 1]))
-			error_map(1);
-	check_map(map);
+	check_walls(map);
 }

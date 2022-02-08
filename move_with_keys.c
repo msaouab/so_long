@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:43:33 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/07 02:15:05 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/08 22:38:20 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	check_exit(t_map *map)
 
 	l = 1;
 	i = -1;
-	while (++i < map->i)
+	while (++i < map->lnbr)
 	{
 		j = -1;
-		while (++j < (map->count_line / map->i))
+		while (++j < ft_strlen(map->map[i]))
 		{
 			if (map->map[i][j] == 'C')
 				l = 0;

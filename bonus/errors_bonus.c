@@ -6,11 +6,29 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:39:28 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/07 16:46:42 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/08 23:25:18 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+int	ft_exit(void)
+{
+	exit(0);
+}
+
+void	ft_free(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	while (i < map->lnbr)
+	{
+		free (map->map[i]);
+		i++;
+	}
+	free (map->map);
+}
 
 int	any_key(int keycode, t_map *map)
 {
@@ -26,37 +44,14 @@ void	destroy_game(t_map *map, int res)
 	int	x;
 	int	y;
 
-	x = ((map->count_line / map->i) * 75) / 2;
-	y = (map->i * 75) / 2;
+	x = (ft_strlen(map->map[0]) * 75) / 2;
+	y = (map->lnbr * 75) / 2;
 	mlx_clear_window(map->ptr, map->win);
 	if (res == 1)
 		mlx_string_put(map->ptr, map->win, x, y, 0x00FFFFFF, "you win");
 	if (res == 0)
 		mlx_string_put(map->ptr, map->win, x, y, 0x00FFFFFF, "you lose");
 	mlx_key_hook(map->win, any_key, map);
-}
-
-char	*ft_strjoin(char *s1, char *s2)
-{
-	int		i;
-	int		j;
-	char	*str;
-
-	if (!s1)
-		return (ft_strdup(s2));
-	i = ft_strlen(s1) + ft_strlen(s2);
-	str = malloc(sizeof(char) * (i + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s1[i])
-		str[j++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		str[j++] = s2[i++];
-	str[j] = '\0';
-	return (str);
 }
 
 void	error_map(int err)

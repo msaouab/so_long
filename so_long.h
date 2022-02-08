@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/07 02:11:56 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/08 23:31:21 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
 # include <mlx.h>
 # include <fcntl.h>
 
+#define BUFFER_SIZE 1
+
 typedef struct map_variable
 {
-	int		count_buff;
 	int		count_line;
 	char	**map;
 	char	*save;
@@ -30,7 +31,8 @@ typedef struct map_variable
 	int		count;
 	int		fd;
 	int		out;
-	int		i;
+	int		lnbr;
+	int		wnbr;
 	int		c;
 	int		e;
 	int		p;
@@ -73,4 +75,11 @@ void	print_result(void);
 char	*ft_strjoin(char *s1, char *s2);
 void	check_exit(t_map *map);
 void	destroy_game(t_map *map);
+int		ft_exit(void);
+
+char	*get_next_line(int fd);
+char	*ft_substr(char *s, int start, int len);
+// size_t	ft_strlen(char *s);
+char	*ft_ret_ft(char **saved);
+void	assign(char **dest, char *src, char *to_free);
 #endif
