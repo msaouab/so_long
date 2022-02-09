@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/08 23:31:21 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 04:02:53 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,8 @@
 
 typedef struct map_variable
 {
-	int		count_line;
 	char	**map;
-	char	*save;
-	char	*buff;
 	int		count;
-	int		fd;
 	int		out;
 	int		lnbr;
 	int		wnbr;
@@ -82,4 +78,5 @@ char	*ft_substr(char *s, int start, int len);
 // size_t	ft_strlen(char *s);
 char	*ft_ret_ft(char **saved);
 void	assign(char **dest, char *src, char *to_free);
+void	ft_free(t_map *map);
 #endif

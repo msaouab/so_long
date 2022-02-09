@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:39:20 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/08 23:55:07 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 03:55:28 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,10 @@ int	key_hook(int keycode, t_map *map)
 	if (keycode == 13)
 		move_to_top_bonus(map);
 	if (keycode == 53)
+	{
+		ft_free(map);
 		exit(0);
+	}
 	if (map->out == 1)
 		check_exit_bonus(map);
 	if (map->out == 2)

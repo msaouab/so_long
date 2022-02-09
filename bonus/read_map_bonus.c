@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 02:28:40 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/08 23:57:00 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 03:44:33 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,10 +104,10 @@ void	count_mapln(t_map *map, int fd)
 		buff = get_next_line(fd);
 		if (buff == NULL)
 			break ;
+		free (buff);
 		map->lnbr++;
 	}
 	close(fd);
-	free (buff);
 }
 
 void	read_map_bonus(char *av, t_map *map)

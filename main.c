@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:39:20 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/08 23:26:26 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 03:57:02 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,6 @@ void	xpm_to_img(t_map *map)
 	map->a_E = mlx_xpm_file_to_image
 		(map->ptr, ph_e, &map->font_w, &map->font_h);
 	xpm_to_img_collectible(map);
-}
-
-void	ft_free(t_map *map)
-{
-	int	i;
-
-	i = 0;
-	while (i < map->lnbr)
-	{
-		free (map->map[i]);
-		i++;
-	}
-	free (map->map);
 }
 
 int	key_hook(int keycode, t_map *map)

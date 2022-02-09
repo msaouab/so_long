@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/08 23:22:35 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 04:06:06 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,9 @@
 
 typedef struct s_map
 {
-	int		count_line;
 	int		lnbr;
 	char	**map;
-	char	*save;
-	char	*buff;
 	int		count;
-	int		fd;
 	int		out;
 	int		c;
 	int		e;
@@ -82,5 +78,6 @@ void	ft_free(t_map *map);
 char	*get_next_line(int fd);
 void	assign(char **dest, char *src, char *to_free);
 char	*ft_substr(char *s, int start, int len);
+void	ft_free(t_map *map);
 
 #endif
