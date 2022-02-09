@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/09 05:59:49 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 08:19:38 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_game
 	int		p_x;
 	int		p_y;
 	char	*move;
+	char	*buff;
 }	t_game;
 
 void	read_map_bonus(char *av, t_game *map);

@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:43:33 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/09 04:44:48 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 08:42:06 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ void	check_exit(t_map *map)
 	{
 		j = -1;
 		while (++j < ft_strlen(map->map[i]))
-		{
 			if (map->map[i][j] == 'C')
 				l = 0;
-		}
 	}
 	if (l == 0)
 		return ;
 	else
 	{
+		map->count++;
+		printf("Move: %d\n", map->count);
 		map->map[map->p_x][map->p_y] = '0';
 		destroy_game(map);
 		printf("You Win\n");

@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/09 05:38:48 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 08:22:51 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 typedef struct s_map
 {
 	char	**map;
+	char	*move;
+	void	*img;
+	void	*win;
 	int		count;
 	int		out;
 	int		lnbr;
@@ -40,15 +43,12 @@ typedef struct s_map
 	void	*a_star;
 	void	*a_hart;
 	void	*ptr;
-	void	*win;
 	int		x;
 	int		y;
 	int		font_w;
 	int		font_h;
-	void	*img;
 	int		p_x;
 	int		p_y;
-	char	*move;
 }	t_map;
 
 void	read_map(char *av, t_map *map);

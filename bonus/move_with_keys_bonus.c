@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:43:00 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/09 06:01:58 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 08:19:23 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@ void	move_to_left_bonus(t_game *map)
 	map->count++;
 	mlx_clear_window(map->ptr, map->win);
 	print_wall_bonus(map);
-	map->move = ft_strjoin("move : ", ft_itoa(map->count));
+	map->buff = ft_itoa(map->count);
+	map->move = ft_strjoin("move : ", map->buff);
+	free (map->buff);
 	mlx_string_put(map->ptr, map->win, 15, 7, 0x00FFFF00, map->move);
 	free (map->move);
 }
@@ -86,7 +88,9 @@ void	move_to_bottum_bonus(t_game *map)
 	map->count++;
 	mlx_clear_window(map->ptr, map->win);
 	print_wall_bonus(map);
-	map->move = ft_strjoin("move : ", ft_itoa(map->count));
+	map->buff = ft_itoa(map->count);
+	map->move = ft_strjoin("move : ", map->buff);
+	free (map->buff);
 	mlx_string_put(map->ptr, map->win, 15, 7, 0x00FFFF00, map->move);
 	free (map->move);
 }
@@ -112,7 +116,9 @@ void	move_to_right_bonus(t_game *map)
 	map->count++;
 	mlx_clear_window(map->ptr, map->win);
 	print_wall_bonus(map);
-	map->move = ft_strjoin("move : ", ft_itoa(map->count));
+	map->buff = ft_itoa(map->count);
+	map->move = ft_strjoin("move : ", map->buff);
+	free (map->buff);
 	mlx_string_put(map->ptr, map->win, 15, 7, 0x00FFFF00, map->move);
 	free (map->move);
 }
@@ -138,7 +144,9 @@ void	move_to_top_bonus(t_game *map)
 	map->count++;
 	mlx_clear_window(map->ptr, map->win);
 	print_wall_bonus(map);
-	map->move = ft_strjoin("move : ", ft_itoa(map->count));
+	map->buff = ft_itoa(map->count);
+	map->move = ft_strjoin("move : ", map->buff);
+	free (map->buff);
 	mlx_string_put(map->ptr, map->win, 15, 7, 0x00FFFF00, map->move);
 	free (map->move);
 }
