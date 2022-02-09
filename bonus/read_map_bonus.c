@@ -6,13 +6,13 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 02:28:40 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/09 03:44:33 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 06:02:42 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "../include/so_long_bonus.h"
 
-void	invalid_char(t_map *map)
+void	invalid_char_bonus(t_game *map)
 {
 	int	i;
 	int	j;
@@ -41,7 +41,7 @@ void	invalid_char(t_map *map)
 		error_map(4);
 }
 
-void	check_elements_map(t_map *map)
+void	check_elements_map_bonus(t_game *map)
 {
 	int	count;
 	int	i;
@@ -64,10 +64,10 @@ void	check_elements_map(t_map *map)
 	map->e = 0;
 	map->p = 0;
 	map->n = 0;
-	invalid_char(map);
+	invalid_char_bonus(map);
 }
 
-void	check_walls(t_map *map)
+void	check_walls_bonus(t_game *map)
 {
 	int	i;
 	int	j;
@@ -91,10 +91,10 @@ void	check_walls(t_map *map)
 	while (++i < map->lnbr)
 		if (map->map[i][0] != '1' || map->map[i][j] != '1')
 			error_map(2);
-	check_elements_map(map);
+	check_elements_map_bonus(map);
 }
 
-void	count_mapln(t_map *map, int fd)
+void	count_mapln(t_game *map, int fd)
 {
 	char	*buff;
 
@@ -110,7 +110,7 @@ void	count_mapln(t_map *map, int fd)
 	close(fd);
 }
 
-void	read_map_bonus(char *av, t_map *map)
+void	read_map_bonus(char *av, t_game *map)
 {
 	int		i;
 	int		fd;
@@ -130,5 +130,5 @@ void	read_map_bonus(char *av, t_map *map)
 	close(fd);
 	if (map->map == NULL)
 		error_map(-1);
-	check_walls(map);
+	check_walls_bonus(map);
 }

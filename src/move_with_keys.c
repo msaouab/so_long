@@ -6,11 +6,11 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:43:33 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/08 22:38:20 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 04:44:48 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void	check_exit(t_map *map)
 {

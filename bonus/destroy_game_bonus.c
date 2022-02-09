@@ -1,45 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors_bonus.c                                     :+:      :+:    :+:   */
+/*   destroy_game_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:39:28 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/08 23:25:18 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 06:02:55 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "../include/so_long_bonus.h"
 
-int	ft_exit(void)
-{
-	exit(0);
-}
-
-void	ft_free(t_map *map)
-{
-	int	i;
-
-	i = 0;
-	while (i < map->lnbr)
-	{
-		free (map->map[i]);
-		i++;
-	}
-	free (map->map);
-}
-
-int	any_key(int keycode, t_map *map)
-{
-	(void)keycode;
-	mlx_clear_window(map->ptr, map->win);
-	mlx_destroy_window(map->ptr, map->win);
-	exit(0);
-	return (0);
-}
-
-void	destroy_game(t_map *map, int res)
+void	destroy_game_bonus(t_game *map, int res)
 {
 	int	x;
 	int	y;
@@ -51,23 +24,5 @@ void	destroy_game(t_map *map, int res)
 		mlx_string_put(map->ptr, map->win, x, y, 0x00FFFFFF, "you win");
 	if (res == 0)
 		mlx_string_put(map->ptr, map->win, x, y, 0x00FFFFFF, "you lose");
-	mlx_key_hook(map->win, any_key, map);
-}
-
-void	error_map(int err)
-{
-	ft_putstr_fd("error\n", 2);
-	if (err == 0)
-		ft_putstr_fd("you have minumum argements\n", 2);
-	if (err == 1)
-		ft_putstr_fd("error length of line map\n", 2);
-	if (err == 2)
-		ft_putstr_fd("Invalid Wall\n", 2);
-	if (err == 3)
-		ft_putstr_fd("your map must be rectangular\n", 2);
-	if (err == 4)
-		ft_putstr_fd("error map\n", 2);
-	if (err == 5)
-		ft_putstr_fd("Invalid Characters\n", 2);
-	exit(0);
+	mlx_key_hook(map->win, any_key_bonus, map);
 }

@@ -6,11 +6,12 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 01:06:15 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/08 23:54:27 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 05:35:10 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long_bonus.h"
+#include "../include/so_long.h"
 
 int	ft_strlen(char *s)
 {
@@ -62,27 +63,4 @@ char	*ft_strjoin(char *s1, char *s2)
 		str[j++] = s2[i++];
 	str[j] = '\0';
 	return (str);
-}
-
-char	*ft_substr(char *s, int start, int len)
-{
-	char	*sub;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = start;
-	while (s[j] && i < len)
-	{
-		i++;
-		j++;
-	}
-	sub = malloc(sizeof(char) * (i + 1));
-	if (!sub)
-		return (NULL);
-	i = 0;
-	while (s[start] && i < len && start <= ft_strlen(s))
-		sub[i++] = s[start++];
-	sub[i] = '\0';
-	return (sub);
 }

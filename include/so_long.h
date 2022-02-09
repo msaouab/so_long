@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/09 04:02:53 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 05:38:48 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 # include <mlx.h>
 # include <fcntl.h>
 
-#define BUFFER_SIZE 1
+# define BUFFER_SIZE 1
 
-typedef struct map_variable
+typedef struct s_map
 {
 	char	**map;
 	int		count;
@@ -32,13 +32,13 @@ typedef struct map_variable
 	int		c;
 	int		e;
 	int		p;
-	void	*a_Coin;
-	void	*a_Star;
-	void	*a_Hart;
-	void	*a_E;
-	void	*a_P;
 	void	*a_1;
 	void	*a_0;
+	void	*a_e;
+	void	*a_p;
+	void	*a_coin;
+	void	*a_star;
+	void	*a_hart;
 	void	*ptr;
 	void	*win;
 	int		x;
@@ -48,35 +48,33 @@ typedef struct map_variable
 	void	*img;
 	int		p_x;
 	int		p_y;
+	char	*move;
 }	t_map;
 
-void	read_map(char *av, t_map *gnl);
-int		ft_strlen(char *s);
-char	*ft_strdup(char *s1);
+void	read_map(char *av, t_map *map);
 void	ft_putstr_fd(char *s, int fd);
-char	**ft_split(char *s, char c);
-void	error_map(int err);
 char	*ft_strrchr(char *str, int c);
 int		ft_strncmp(char *s1, char *s2, size_t n);
-void	movewith_key(t_map *gnl, int keycode);
-void	move_to_left(t_map *gnl);
-void	move_to_bottum(t_map *gnl);
-void	move_to_right(t_map *gnl);
-void	move_to_top(t_map *gnl);
-void	print_wall(t_map *gnl);
-void	position_p(t_map *gnl);
-void	random_colloctible(t_map *map);
-void	xpm_to_img_collectible(t_map *map);
-void	print_result(void);
-char	*ft_strjoin(char *s1, char *s2);
-void	check_exit(t_map *map);
-void	destroy_game(t_map *map);
-int		ft_exit(void);
-
-char	*get_next_line(int fd);
 char	*ft_substr(char *s, int start, int len);
-// size_t	ft_strlen(char *s);
-char	*ft_ret_ft(char **saved);
-void	assign(char **dest, char *src, char *to_free);
+int		ft_strlen(char *s);
+char	*ft_strdup(char *s);
+char	*ft_strjoin(char *s1, char *s2);
+void	destroy_game(t_map *map);
+void	move_to_top(t_map *map);
+void	move_to_right(t_map *map);
+void	move_to_bottum(t_map *map);
+void	move_to_left(t_map *map);
+void	check_exit(t_map *map);
+int		any_key(int keycode, t_map *map);
 void	ft_free(t_map *map);
+void	error_map(int err);
+int		ft_exit(void);
+void	xpm_to_img_collectible(t_map *map);
+void	print_wall(t_map *map);
+void	position_p(t_map *map);
+void	assign(char **dest, char *src, char *to_free);
+char	*get_next_line(int fd);
+char	*ft_itoa(int n);
+int		keys_hook(int keycode, t_map *map);
+
 #endif

@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 09:45:39 by msaouab           #+#    #+#              #
-#    Updated: 2022/02/09 04:07:22 by msaouab          ###   ########.fr        #
+#    Updated: 2022/02/09 05:51:46 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,24 +14,34 @@ NAME = so_long
 
 NAME_BONUS = so_long_bonus
 
-SRC =	main.c\
-		move_with_keys.c\
-		utils_libft.c\
-		print_map.c\
-		read_map.c\
-		errors.c\
-		get_next_line.c\
-		get_next_line_utils.c\
+SRC =	src/main.c\
+		src/move_with_keys.c\
+		src/print_map.c\
+		src/read_map.c\
+		src/destroy_game.c\
+		src/position_p.c\
+		src/any_key.c\
+		src/ft_free.c\
+		utils/errors.c\
+		utils/ft_exit.c\
+		utils/get_next_line.c\
+		utils/get_next_line_utils.c\
+		utils/utils_libft.c\
 
 SRC_BONUS = bonus/main_bonus.c\
 			bonus/print_map_bonus.c\
 			bonus/move_with_keys_bonus.c\
-			bonus/utils_libft_bonus.c\
 			bonus/read_map_bonus.c\
-			bonus/errors_bonus.c\
 			bonus/ft_itoa_bonus.c\
-			get_next_line.c\
-			get_next_line_utils.c\
+			bonus/destroy_game_bonus.c\
+			bonus/ft_free_bonus.c\
+			bonus/position_p_bonus.c\
+			bonus/any_key_bonus.c\
+			utils/errors.c\
+			utils/ft_exit.c\
+			utils/get_next_line.c\
+			utils/get_next_line_utils.c\
+			utils/utils_libft.c\
 
 OBJ = ${SRC:.c=.o}
 
@@ -41,13 +51,15 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
+MLX = -lmlx -framework OpenGL -framework AppKit
+
 all : $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(MLX) -o $(NAME)
 
 bonus: $(OBJ_BONUS)
-	@$(CC) $(CFLAGS) $(OBJ_BONUS) -lmlx -framework OpenGL -framework AppKit -o $(NAME_BONUS)
+	@$(CC) $(CFLAGS) $(OBJ_BONUS) $(MLX) -o $(NAME_BONUS)
 
 clean :
 		@rm -rf $(OBJ) $(OBJ_BONUS)

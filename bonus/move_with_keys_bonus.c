@@ -6,13 +6,13 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:43:00 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/08 23:22:02 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 06:01:58 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "../include/so_long_bonus.h"
 
-void	check_exit_bonus(t_map *map)
+void	check_exit_bonus(t_game *map)
 {
 	int	i;
 	int	j;
@@ -34,14 +34,14 @@ void	check_exit_bonus(t_map *map)
 	else
 	{
 		map->map[map->p_x][map->p_y] = '0';
-		destroy_game(map, 1);
+		destroy_game_bonus(map, 1);
 		printf("You Win\n");
 	}
 }
 
-void	move_to_left_bonus(t_map *map)
+void	move_to_left_bonus(t_game *map)
 {
-	position_p(map);
+	position_p_bonus(map);
 	if (map->map[map->p_x][map->p_y - 1] == '1')
 		return ;
 	else if (map->map[map->p_x][map->p_y - 1] == 'E')
@@ -65,9 +65,9 @@ void	move_to_left_bonus(t_map *map)
 	free (map->move);
 }
 
-void	move_to_bottum_bonus(t_map *map)
+void	move_to_bottum_bonus(t_game *map)
 {
-	position_p(map);
+	position_p_bonus(map);
 	if (map->map[map->p_x + 1][map->p_y] == '1')
 		return ;
 	else if (map->map[map->p_x + 1][map->p_y] == 'E')
@@ -91,9 +91,9 @@ void	move_to_bottum_bonus(t_map *map)
 	free (map->move);
 }
 
-void	move_to_right_bonus(t_map *map)
+void	move_to_right_bonus(t_game *map)
 {
-	position_p(map);
+	position_p_bonus(map);
 	if (map->map[map->p_x][map->p_y + 1] == '1')
 		return ;
 	else if (map->map[map->p_x][map->p_y + 1] == 'E')
@@ -117,9 +117,9 @@ void	move_to_right_bonus(t_map *map)
 	free (map->move);
 }
 
-void	move_to_top_bonus(t_map *map)
+void	move_to_top_bonus(t_game *map)
 {
-	position_p(map);
+	position_p_bonus(map);
 	if (map->map[map->p_x - 1][map->p_y] == '1')
 		return ;
 	else if (map->map[map->p_x - 1][map->p_y] == 'E')

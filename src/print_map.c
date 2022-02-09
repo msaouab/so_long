@@ -6,11 +6,11 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 20:09:12 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/08 22:36:09 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 05:17:00 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void	print_windows(t_map *map, void *path)
 {
@@ -26,11 +26,11 @@ void	xpm_to_img_collectible(t_map *map)
 	ph_coin = "./img/coin.xpm";
 	ph_star = "./img/star.xpm";
 	ph_hart = "./img/hart.xpm";
-	map->a_Coin = mlx_xpm_file_to_image
+	map->a_coin = mlx_xpm_file_to_image
 		(map->ptr, ph_coin, &map->font_w, &map->font_h);
-	map->a_Star = mlx_xpm_file_to_image
+	map->a_star = mlx_xpm_file_to_image
 		(map->ptr, ph_star, &map->font_w, &map->font_h);
-	map->a_Hart = mlx_xpm_file_to_image
+	map->a_hart = mlx_xpm_file_to_image
 		(map->ptr, ph_hart, &map->font_w, &map->font_h);
 }
 
@@ -50,11 +50,11 @@ void	random_colloctible(t_map *map)
 		{
 			num = j % 5;
 			if (map->map[i][j] == 'C' && num < 2)
-				print_windows(map, map->a_Coin);
+				print_windows(map, map->a_coin);
 			if (map->map[i][j] == 'C' && num == 2)
-				print_windows(map, map->a_Star);
+				print_windows(map, map->a_star);
 			if (map->map[i][j] == 'C' && num > 2)
-				print_windows(map, map->a_Hart);
+				print_windows(map, map->a_hart);
 			map->x += 75;
 		}
 		map->x = 0;
@@ -79,9 +79,9 @@ void	print_wall(t_map *map)
 			if (map->map[i][j] == '1')
 				print_windows(map, map->a_1);
 			if (map->map[i][j] == 'E')
-				print_windows(map, map->a_E);
+				print_windows(map, map->a_e);
 			if (map->map[i][j] == 'P')
-				print_windows(map, map->a_P);
+				print_windows(map, map->a_p);
 			map->x += 75;
 		}
 		map->x = 0;

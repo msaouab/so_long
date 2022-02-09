@@ -6,13 +6,13 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:39:20 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/09 03:55:28 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 06:00:35 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "../include/so_long_bonus.h"
 
-void	xpm_to_img(t_map *map)
+void	xpm_to_img_bonus(t_game *map)
 {
 	void	*ph_0;
 	void	*ph_1;
@@ -31,30 +31,10 @@ void	xpm_to_img(t_map *map)
 		(map->ptr, ph_p, &map->font_w, &map->font_h);
 	map->a_e = mlx_xpm_file_to_image
 		(map->ptr, ph_e, &map->font_w, &map->font_h);
-	xpm_to_img_collectible(map);
+	xpm_to_img_collectible_bonus(map);
 }
 
-void	position_p(t_map *map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (++i < map->lnbr)
-	{
-		j = 0;
-		while (++j < ft_strlen(map->map[i]) - 1)
-		{
-			if (map->map[i][j] == 'P')
-			{
-				map->p_x = i;
-				map->p_y = j;
-			}
-		}
-	}
-}
-
-int	key_hook(int keycode, t_map *map)
+int	keys_hook_bonus(int keycode, t_game *map)
 {
 	map->out = 0;
 	if (keycode == 0)
@@ -67,19 +47,19 @@ int	key_hook(int keycode, t_map *map)
 		move_to_top_bonus(map);
 	if (keycode == 53)
 	{
-		ft_free(map);
+		ft_free_bonus(map);
 		exit(0);
 	}
 	if (map->out == 1)
 		check_exit_bonus(map);
 	if (map->out == 2)
-		destroy_game(map, 0);
+		destroy_game_bonus(map, 0);
 	return (0);
 }
 
 int	main(int ac, char **av)
 {
-	t_map	map;
+	t_game	map;
 	int		x;
 	int		y;
 
@@ -93,11 +73,11 @@ int	main(int ac, char **av)
 	y = map.lnbr * 75;
 	map.ptr = mlx_init();
 	map.win = mlx_new_window(map.ptr, x, y, "so_long");
-	xpm_to_img(&map);
+	xpm_to_img_bonus(&map);
 	print_wall_bonus(&map);
-	mlx_key_hook(map.win, &key_hook, &map);
+	mlx_key_hook(map.win, &keys_hook_bonus, &map);
 	mlx_hook(map.win, 17, (1L << 17), ft_exit, &map);
 	mlx_loop(map.ptr);
-	ft_free(&map);
+	ft_free_bonus(&map);
 	return (0);
 }

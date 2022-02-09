@@ -6,31 +6,11 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:39:20 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/09 03:57:02 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 05:16:04 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-
-void	position_p(t_map *map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (++i < map->lnbr)
-	{
-		j = 0;
-		while (++j < ft_strlen(map->map[i]) - 1)
-		{
-			if (map->map[i][j] == 'P')
-			{
-				map->p_x = i;
-				map->p_y = j;
-			}
-		}
-	}
-}
+#include "../include/so_long.h"
 
 void	xpm_to_img(t_map *map)
 {
@@ -47,9 +27,9 @@ void	xpm_to_img(t_map *map)
 		(map->ptr, ph_0, &map->font_w, &map->font_h);
 	map->a_1 = mlx_xpm_file_to_image
 		(map->ptr, ph_1, &map->font_w, &map->font_h);
-	map->a_P = mlx_xpm_file_to_image
+	map->a_p = mlx_xpm_file_to_image
 		(map->ptr, ph_p, &map->font_w, &map->font_h);
-	map->a_E = mlx_xpm_file_to_image
+	map->a_e = mlx_xpm_file_to_image
 		(map->ptr, ph_e, &map->font_w, &map->font_h);
 	xpm_to_img_collectible(map);
 }

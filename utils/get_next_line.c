@@ -6,11 +6,12 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 01:06:04 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/08 01:24:30 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/09 05:35:14 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long_bonus.h"
+#include "../include/so_long.h"
 
 int	ft_check_ln(char *s)
 {
