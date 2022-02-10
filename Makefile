@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 09:45:39 by msaouab           #+#    #+#              #
-#    Updated: 2022/02/09 05:51:46 by msaouab          ###   ########.fr        #
+#    Updated: 2022/02/10 12:51:44 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,10 @@ SRC =	src/main.c\
 		utils/get_next_line.c\
 		utils/get_next_line_utils.c\
 		utils/utils_libft.c\
+		ft_printf/ft_printf.c\
+		ft_printf/ft_char.c\
+		ft_printf/ft_digit.c\
+		ft_printf/ft_hex.c\
 
 SRC_BONUS = bonus/main_bonus.c\
 			bonus/print_map_bonus.c\
@@ -42,6 +46,10 @@ SRC_BONUS = bonus/main_bonus.c\
 			utils/get_next_line.c\
 			utils/get_next_line_utils.c\
 			utils/utils_libft.c\
+			ft_printf/ft_char.c\
+			ft_printf/ft_digit.c\
+			ft_printf/ft_hex.c\
+			ft_printf/ft_printf.c\
 
 OBJ = ${SRC:.c=.o}
 

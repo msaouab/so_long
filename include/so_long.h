@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/09 08:22:51 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/10 12:28:55 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <mlx.h>
 # include <fcntl.h>
+# include "../ft_printf/ft_printf.h"
 
 # define BUFFER_SIZE 1
 

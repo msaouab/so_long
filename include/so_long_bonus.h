@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/09 08:19:38 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/10 12:47:06 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <mlx.h>
 # include <fcntl.h>
+# include "so_long.h"
 
 # define BUFFER_SIZE 1
 
@@ -59,7 +60,7 @@ void	read_map_bonus(char *av, t_game *map);
 void	ft_putstr_fd(char *s, int fd);
 char	*ft_strrchr(char *str, int c);
 int		ft_strncmp(char *s1, char *s2, size_t n);
-char	*ft_substr(char *s, int start, int len);
+// char	*ft_substr(char *s, int start, int len);
 int		ft_strlen(char *s);
 char	*ft_strdup(char *s);
 char	*ft_strjoin(char *s1, char *s2);
