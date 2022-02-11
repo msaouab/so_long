@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/10 12:47:06 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/11 20:58:26 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ typedef struct s_game
 	int		out;
 	int		lnbr;
 	int		wnbr;
-	int		c;
-	int		e;
-	int		p;
-	int		n;
-	void	*a_1;
-	void	*a_0;
-	void	*a_e;
-	void	*a_p;
+	int		collec;
+	int		exit;
+	int		player;
+	int		enemy;
+	int		enemy_frame;
+	void	*a_wall;
+	void	*a_empty;
+	void	*a_exit;
+	void	*a_player;
+	void	*a_enemy[4];
 	void	*a_coin;
-	void	*a_star;
 	void	*a_hart;
-	void	*a_lion;
-	void	*a_bull;
+	void	*a_star;
 	void	*ptr;
 	void	*win;
 	int		x;
@@ -60,7 +60,6 @@ void	read_map_bonus(char *av, t_game *map);
 void	ft_putstr_fd(char *s, int fd);
 char	*ft_strrchr(char *str, int c);
 int		ft_strncmp(char *s1, char *s2, size_t n);
-// char	*ft_substr(char *s, int start, int len);
 int		ft_strlen(char *s);
 char	*ft_strdup(char *s);
 char	*ft_strjoin(char *s1, char *s2);
@@ -68,7 +67,7 @@ int		any_key_bonus(int keycode, t_game *map);
 void	ft_free_bonus(t_game *map);
 void	error_map(int err);
 int		ft_exit(void);
-void	xpm_to_img_collectible_bonus(t_game *map);
+void	xpm_to_img_enemy_bonus(t_game *map);
 void	position_p_bonus(t_game *map);
 void	assign(char **dest, char *src, char *to_free);
 char	*get_next_line(int fd);
@@ -84,5 +83,12 @@ void	move_to_top_bonus(t_game *map);
 void	read_map_bonus(char *av, t_game *map);
 void	print_wall_bonus(t_game *map);
 void	xpm_to_img_bonus(t_game *map);
+void	print_enemy(t_game *map);
+void	xpm_to_img_collect_bonus(t_game *map);
+void	print_windows(t_game *map, void *path);
+int		loop_enemy(t_game *map);
+int		play_damage_sfx(void);
+void	print_windows_bonus(t_game *map, void *path);
+void	move_enemy(t_game *map, int i, int j);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 09:45:39 by msaouab           #+#    #+#              #
-#    Updated: 2022/02/10 12:51:44 by msaouab          ###   ########.fr        #
+#    Updated: 2022/02/11 20:57:56 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC =	src/main.c\
 		ft_printf/ft_char.c\
 		ft_printf/ft_digit.c\
 		ft_printf/ft_hex.c\
+		utils/sound.c\
 
 SRC_BONUS = bonus/main_bonus.c\
 			bonus/print_map_bonus.c\
@@ -41,6 +42,7 @@ SRC_BONUS = bonus/main_bonus.c\
 			bonus/ft_free_bonus.c\
 			bonus/position_p_bonus.c\
 			bonus/any_key_bonus.c\
+			bonus/move_enemy.c\
 			utils/errors.c\
 			utils/ft_exit.c\
 			utils/get_next_line.c\
@@ -50,6 +52,8 @@ SRC_BONUS = bonus/main_bonus.c\
 			ft_printf/ft_digit.c\
 			ft_printf/ft_hex.c\
 			ft_printf/ft_printf.c\
+			utils/sound.c\
+			bonus/animation_enemy.c\
 
 OBJ = ${SRC:.c=.o}
 

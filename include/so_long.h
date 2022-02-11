@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/10 12:28:55 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/11 20:53:47 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ void	assign(char **dest, char *src, char *to_free);
 char	*get_next_line(int fd);
 char	*ft_itoa(int n);
 int		keys_hook(int keycode, t_map *map);
+int		play_damage_sfx(void);
 
 #endif

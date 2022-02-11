@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:39:20 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/10 12:27:05 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/11 20:44:33 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	xpm_to_img(t_map *map)
 	void	*ph_p;
 	void	*ph_e;
 
-	ph_0 = "./img/vide.xpm";
+	ph_0 = "./img/empty.xpm";
 	ph_1 = "./img/wall.xpm";
 	ph_p = "./img/player.xpm";
 	ph_e = "./img/door.xpm";
@@ -60,6 +60,7 @@ int	main(int ac, char **av)
 	t_map	map;
 	int		x;
 	int		y;
+	int		pid;
 
 	map.count = 0;
 	if (ac < 2)
@@ -71,11 +72,13 @@ int	main(int ac, char **av)
 	y = map.lnbr * 75;
 	map.ptr = mlx_init();
 	map.win = mlx_new_window(map.ptr, x, y, "so_long");
+	pid = play_damage_sfx();
 	xpm_to_img(&map);
 	print_wall(&map);
 	mlx_key_hook(map.win, &key_hook, &map);
 	mlx_hook(map.win, 17, (1L << 17), ft_exit, &map);
 	mlx_loop(map.ptr);
 	ft_free(&map);
+	exit(0);
 	return (0);
 }

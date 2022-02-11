@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 02:28:40 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/09 06:02:42 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/11 17:42:13 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ void	invalid_char_bonus(t_game *map)
 		while (++j < ft_strlen(map->map[i]))
 		{
 			if (map->map[i][j] == 'C')
-				map->c++;
+				map->collec++;
 			if (map->map[i][j] == 'E')
-				map->e++;
+				map->exit++;
 			if (map->map[i][j] == 'P')
-				map->p++;
+				map->player++;
 			if (map->map[i][j] == 'N')
-				map->n++;
+				map->enemy++;
 			if (map->map[i][j] != '1' && map->map[i][j] != '0')
 				if (map->map[i][j] != 'C' && map->map[i][j] != 'E')
 					if (map->map[i][j] != 'P' && map->map[i][j] != 'N')
 						error_map(5);
 		}
 	}
-	if (map->p != 1 || map->c < 1 || map->e < 1 || map->n < 1)
+	if (map->player != 1 || map->collec < 1 || map->exit < 1)
 		error_map(4);
 }
 
@@ -60,10 +60,10 @@ void	check_elements_map_bonus(t_game *map)
 		if (count == j)
 			error_map(4);
 	}
-	map->c = 0;
-	map->e = 0;
-	map->p = 0;
-	map->n = 0;
+	map->collec = 0;
+	map->exit = 0;
+	map->player = 0;
+	map->enemy = 0;
 	invalid_char_bonus(map);
 }
 

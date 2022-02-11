@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:43:00 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/10 12:29:34 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/11 18:09:53 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	check_exit_bonus(t_game *map)
 	{
 		map->map[map->p_x][map->p_y] = '0';
 		destroy_game_bonus(map, 1);
-		ft_printf("You Win\n");
 	}
 }
 
@@ -52,7 +51,6 @@ void	move_to_left_bonus(t_game *map)
 	else if (map->map[map->p_x][map->p_y - 1] == 'N')
 	{
 		map->out = 2;
-		ft_printf("You lose");
 		return ;
 	}
 	map->map[map->p_x][map->p_y] = '0';
@@ -80,7 +78,6 @@ void	move_to_bottum_bonus(t_game *map)
 	else if (map->map[map->p_x + 1][map->p_y] == 'N')
 	{
 		map->out = 2;
-		ft_printf("You lose");
 		return ;
 	}
 	map->map[map->p_x][map->p_y] = '0';
@@ -108,7 +105,6 @@ void	move_to_right_bonus(t_game *map)
 	else if (map->map[map->p_x][map->p_y + 1] == 'N')
 	{
 		map->out = 2;
-		ft_printf("You lose");
 		return ;
 	}
 	map->map[map->p_x][map->p_y] = '0';
@@ -136,7 +132,6 @@ void	move_to_top_bonus(t_game *map)
 	else if (map->map[map->p_x - 1][map->p_y] == 'N')
 	{
 		map->out = 2;
-		ft_printf("You lose");
 		return ;
 	}
 	map->map[map->p_x][map->p_y] = '0';
