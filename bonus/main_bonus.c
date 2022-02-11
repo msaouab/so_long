@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:39:20 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/11 20:53:28 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/02/11 21:28:38 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	main(int ac, char **av)
 	map.enemy_frame = 0;
 	if (ac < 2)
 		error_map(0);
-	if (ft_strncmp(ft_strrchr(av[1], '.'), ".ber", 4) != 0)
+	if (ft_strncmp(ft_strrchr(av[1], '.'), ".ber", 5) != 0)
 		error_map(-1);
 	read_map_bonus(av[1], &map);
 	x = ft_strlen(map.map[0]) * 75;
