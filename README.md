@@ -12,7 +12,7 @@ So_long is an individual project at [1337](1337.ma) *#42network* that requires u
 ### Description
 This project is about creating your very first game! using Mlx.
 
-[SUBJECT](Subject/en.subject.pdf)
+[SUBJECT](./Subject/en.subject.pdf)
 
 # How to play ?
 - You need to compile  source files with `make ` for mandatory part and `make bonus` for bonus part.
