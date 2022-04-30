@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:39:20 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/11 21:29:12 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/04/30 15:50:25 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	key_hook(int keycode, t_map *map)
 		move_to_top(map);
 	if (keycode == 53)
 	{
+		kill(map->pid, SIGSEGV);
 		ft_free(map);
 		exit(0);
 	}
@@ -60,7 +61,6 @@ int	main(int ac, char **av)
 	t_map	map;
 	int		x;
 	int		y;
-	int		pid;
 
 	map.count = 0;
 	if (ac < 2)
@@ -72,7 +72,7 @@ int	main(int ac, char **av)
 	y = map.lnbr * 75;
 	map.ptr = mlx_init();
 	map.win = mlx_new_window(map.ptr, x, y, "so_long");
-	pid = play_damage_sfx();
+	play_damage_sfx(&map);
 	xpm_to_img(&map);
 	print_wall(&map);
 	mlx_key_hook(map.win, &key_hook, &map);

@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/11 20:53:47 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/04/30 15:52:48 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <mlx.h>
 # include <fcntl.h>
+# include <signal.h>
 # include "../ft_printf/ft_printf.h"
 
 # define BUFFER_SIZE 1
@@ -50,6 +51,7 @@ typedef struct s_map
 	int		font_h;
 	int		p_x;
 	int		p_y;
+	pid_t	pid;
 }	t_map;
 
 void	read_map(char *av, t_map *map);
@@ -69,7 +71,7 @@ void	check_exit(t_map *map);
 int		any_key(int keycode, t_map *map);
 void	ft_free(t_map *map);
 void	error_map(int err);
-int		ft_exit(void);
+int		ft_exit(t_map *map);
 void	xpm_to_img_collectible(t_map *map);
 void	print_wall(t_map *map);
 void	position_p(t_map *map);
@@ -77,6 +79,6 @@ void	assign(char **dest, char *src, char *to_free);
 char	*get_next_line(int fd);
 char	*ft_itoa(int n);
 int		keys_hook(int keycode, t_map *map);
-int		play_damage_sfx(void);
+void	play_damage_sfx(t_map *map);
 
 #endif

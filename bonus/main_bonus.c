@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:39:20 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/11 21:28:38 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/04/30 16:04:51 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	keys_hook_bonus(int keycode, t_game *map)
 		move_to_top_bonus(map);
 	if (keycode == 53)
 	{
+		kill(map->pid, SIGSEGV);
 		ft_free_bonus(map);
 		exit(0);
 	}
@@ -67,7 +68,6 @@ int	main(int ac, char **av)
 	t_game	map;
 	int		x;
 	int		y;
-	int		pid;
 
 	map.count = 0;
 	map.enemy_frame = 0;
@@ -80,12 +80,12 @@ int	main(int ac, char **av)
 	y = map.lnbr * 75;
 	map.ptr = mlx_init();
 	map.win = mlx_new_window(map.ptr, x, y, "so_long");
-	pid = play_damage_sfx();
+	play_damage_sfx_bonus(&map);
 	xpm_to_img_bonus(&map);
 	print_wall_bonus(&map);
 	mlx_loop_hook(map.ptr, &loop_enemy, &map);
 	mlx_key_hook(map.win, &keys_hook_bonus, &map);
-	mlx_hook(map.win, 17, (1L << 17), ft_exit, &map);
+	mlx_hook(map.win, 17, (1L << 17), ft_exit_bonus, &map);
 	mlx_loop(map.ptr);
 	ft_free_bonus(&map);
 	return (0);

@@ -1,5 +1,4 @@
 <p align="center">
-<!-- <a href="https://github.com/YOPll/get_next_line"> -->
   <img src="./img/note_so_long.png" alt="so_long 125/100">
 </a>
   <br>

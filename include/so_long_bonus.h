@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 09:44:47 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/11 20:58:26 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/04/30 16:04:44 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_game
 	int		p_y;
 	char	*move;
 	char	*buff;
+	pid_t	pid;
 }	t_game;
 
 void	read_map_bonus(char *av, t_game *map);
@@ -66,7 +67,7 @@ char	*ft_strjoin(char *s1, char *s2);
 int		any_key_bonus(int keycode, t_game *map);
 void	ft_free_bonus(t_game *map);
 void	error_map(int err);
-int		ft_exit(void);
+int		ft_exit_bonus(t_game *map);
 void	xpm_to_img_enemy_bonus(t_game *map);
 void	position_p_bonus(t_game *map);
 void	assign(char **dest, char *src, char *to_free);
@@ -87,7 +88,7 @@ void	print_enemy(t_game *map);
 void	xpm_to_img_collect_bonus(t_game *map);
 void	print_windows(t_game *map, void *path);
 int		loop_enemy(t_game *map);
-int		play_damage_sfx(void);
+void	play_damage_sfx_bonus(t_game *map);
 void	print_windows_bonus(t_game *map, void *path);
 void	move_enemy(t_game *map, int i, int j);
 
