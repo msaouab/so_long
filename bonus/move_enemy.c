@@ -6,7 +6,7 @@
 /*   By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 16:09:19 by msaouab           #+#    #+#             */
-/*   Updated: 2022/02/11 20:57:12 by msaouab          ###   ########.fr       */
+/*   Updated: 2022/05/01 01:40:58 by msaouab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	move_enemy_to_left(t_game *map, int i, int j)
 	if (map->map[i][j - 1] == 'P')
 	{
 		map->out = 2;
-		ft_printf("You lose");
+		printf("You lose");
 		destroy_game_bonus(map, 0);
 		return ;
 	}
@@ -36,7 +36,7 @@ void	move_enemy_to_right(t_game *map, int i, int j)
 	if (map->map[i][j + 1] == 'P')
 	{
 		map->out = 2;
-		ft_printf("You lose");
+		printf("You lose");
 		destroy_game_bonus(map, 0);
 		return ;
 	}
@@ -52,7 +52,7 @@ void	move_enemy_to_buttom(t_game *map, int i, int j)
 	if (map->map[i + 1][j] != '0')
 	{
 		map->out = 2;
-		ft_printf("You lose");
+		printf("You lose");
 		destroy_game_bonus(map, 0);
 		return ;
 	}
@@ -68,7 +68,7 @@ void	move_enemy_to_top(t_game *map, int i, int j)
 	if (map->map[i - 1][j] != '0')
 	{
 		map->out = 2;
-		ft_printf("You lose");
+		printf("You lose");
 		destroy_game_bonus(map, 0);
 		return ;
 	}

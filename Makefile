@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 09:45:39 by msaouab           #+#    #+#              #
-#    Updated: 2022/04/30 16:05:09 by msaouab          ###   ########.fr        #
+#    Updated: 2022/05/01 01:41:34 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,6 @@ SRC =	src/main.c\
 		utils/get_next_line.c\
 		utils/get_next_line_utils.c\
 		utils/utils_libft.c\
-		ft_printf/ft_printf.c\
-		ft_printf/ft_char.c\
-		ft_printf/ft_digit.c\
-		ft_printf/ft_hex.c\
 		utils/sound.c\
 
 SRC_BONUS = bonus/main_bonus.c\
@@ -46,10 +42,6 @@ SRC_BONUS = bonus/main_bonus.c\
 			utils/get_next_line.c\
 			utils/get_next_line_utils.c\
 			utils/utils_libft.c\
-			ft_printf/ft_char.c\
-			ft_printf/ft_digit.c\
-			ft_printf/ft_hex.c\
-			ft_printf/ft_printf.c\
 			utils/sound.c\
 			utils/sound_bonus.c\
 			bonus/animation_enemy.c\
